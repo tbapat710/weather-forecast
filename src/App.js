@@ -21,6 +21,7 @@ function App() {
   const [data, setData] = useState({});
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+
   // const fetchWeatherData=async()=>{
   //   const resp=await fetch('https://api.openweathermap.org/data/2.5/forecast?q=indore&appid=bf34c95c549370af5a47e8d9ab56bda6');
   //   const data=await resp.json();
@@ -103,7 +104,7 @@ function App() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {list.map((value) => {
+            {list.map((value,index) => {
               const date = new Date(value.dt_txt);
               const CurrentDay = date.getDay();
               const day = getCurrentDay(CurrentDay);
@@ -112,18 +113,22 @@ function App() {
                 month: "long",
                 year: "numeric",
               });
-              return (
-                <TableRow>
-                  <TableCell align="right">{day}</TableCell>
-                  <TableCell align="right">{formattedDate}</TableCell>
-                  <TableCell align="right">
-                    {(value.main.temp_max - 273.15).toFixed(2)}&#8451;
-                  </TableCell>
-                  <TableCell align="right">
-                    {value.weather[0].description}
-                  </TableCell>
-                </TableRow>
-              );
+              if(index%8===0){
+                return (
+                  <TableRow>
+                    
+                    <TableCell align="right">{day}</TableCell>
+                    <TableCell align="right">{formattedDate}</TableCell>
+                    <TableCell align="right">
+                      {(value.main.temp_max - 273.15).toFixed(2)}&#8451;
+                    </TableCell>
+                    <TableCell align="right">
+                      {value.weather[0].description}
+                    </TableCell>
+                  </TableRow>
+                );
+              }
+
             })}
           </TableBody>
         </Table>

@@ -1,0 +1,6 @@
+//Based on city
+//https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=bf34c95c549370af5a47e8d9ab56bda6
+//api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+//https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=bf34c95c549370af5a47e8d9ab56bda6
+// day weather forecast
+//http://api.openweathermap.org/data/2.5/forecast?appid=bf34c95c549370af5a47e8d9ab56bda6&q=indore&count=10
